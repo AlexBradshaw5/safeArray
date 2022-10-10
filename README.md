@@ -16,42 +16,38 @@ Our example tables include: $\textit{Product, User, Orders, Cart Item, Order Ite
 Each table includes a number of related attributes such as product-ID, quantity, price etc.
 
 Tables and attributes can have one of three types of relationships: $$\text{1:1 | 1:Many | Many:Many}$$ 
-Examples for such relationships are: $$\text{Username:User ID | Shopping Session ID:Cart Items | Supplier:Product}$$ respectively.  
+Examples for such relationships are: $$\text{Username : User ID | Shopping Session ID : Cart Items | Supplier : Product}$$ respectively.  
 
 ## Key Definition
 With our tables created, we now look at what attributes for each table we can use as keys. 
 
 ### 1. Primary Keys 
 REMINDER: Primary keys are columns with all unique and non-null values and are used to uniquely specify any certain row of data. These are typically attributes that have a 1:1 relationship with their respective table such as:
-$$\text{Product:Product ID | User:User ID | Order:Order ID}$$
+$$\text{Product : Product ID | User : User ID | Order : Order ID}$$
 
 ### 2. Foreign Keys
 REMINDER: Foreign Keys are Primary Keys from other tables. These are typically used when a table is missing any attribute with a 1:1 relationship yet has a 1:1 relationship with another table and can therefore use its primary key such as:
-$$\text{Order Items:Product ID | Shopping Session:User ID | Order Items:Order ID}$$
+$$\text{Order Items : Product ID | Shopping Session : User ID | Order Items : Order ID}$$
 
 ### 3. Composite Keys
 REMINDER: Composite Keys are combinations of two or more columns in a table that work together to function as a primary key. These are typically used in tables that describe the relationships between Many:Many objects such as:
-$$\text{Supplier ID + Product ID:Supplier-Products | User ID + Created_at:Shopping Session}$$
+$$\text{Supplier ID + Product ID : Supplier-Products | User ID + Created-at : Shopping Session}$$
 
 
 ### 4. Unique Keys
 REMINDER: Unique Keys are simply any column that contains all unique values such as:
-$$\text{}$$
+$$\text{Product Name | Username | Supplier Name}$$
 
 NOTE: Some DBMS require columns to be completely unique (no multiple null values) while others only require non-null entries to be unique (can have multiple null values). 
 
+## Complexities of Keys
+Our database is complete for now, but let's say our friend Cody wants to expand his business beyond just saxophones. In order to maximize profits for multiple musical intruments, it would be helpful to track product features such as color, size, material, frequency etc. The issue comes from the fact musical instruments not only have unique musical features, they also have unique sound features, both of which may have their own attributes. 
 
-## Conclusion
-DataBase Keys are fundamental tool to create and manage a database management system, strong understanding and assignment of keys are detrimental to traverse the DBMS smoothly.
+This could lead to $\textbf{runtime issues}$ of trying to insert similar features across multiple tables OR querying across multiple tables to find specific results, $\textbf{key errors}$ since some primary keys may not be unique or non-null anymore, and $\textbf{storage overload}$ from the additional tables. 
 
-## 
-## Technical Specifications
+## Solutions
+In order to solve our problem of getting lost in the forest of attributes and tables, we can create and use a key-value database (such as a json file) as an attribute in a table. This would keep the integrity and importance of our keys, as well as encompass the complex varieties of musical instruments while keeping storage and runtime to a minimum. 
 
-To use this notebook you need to run the following command:
-```
-git clone https://github.com/maneelusf/dbkeys_repo.git
-```
-You also need the following python libraries:
-```
-tabulate
-sqllite3
+
+
+
