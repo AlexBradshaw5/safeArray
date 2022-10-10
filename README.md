@@ -48,6 +48,6 @@ This could lead to $\textbf{runtime issues}$ of trying to insert similar feature
 ## Solutions
 In order to solve our problem of getting lost in the forest of attributes and tables, we can create and use a key-value database (such as a json file) as an attribute in a table. This would keep the integrity and importance of our keys, as well as encompass the complex varieties of musical instruments while keeping storage and runtime to a minimum. 
 
-
-
+## Conclusion
+Real world data is messy. Databases and keys are very important ways to keep data organized and easily accessible. Primary keys for quick access, foreign keys to keep data integrity and structure, composite keys to ensure uniqueness, and uniqueness for EDA. Like everything keys aren't perfect, but as we've demonstrated there are many ways to make adjustments and do what we need to do. 
 
